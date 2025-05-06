@@ -20,9 +20,9 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
-	  inherit system;
+	        inherit system;
           config = { allowUnfree = true; };
-	};
+	      };
       in
       {
         devShells.default = pkgs.mkShell {
