@@ -1,5 +1,5 @@
 {
-  description = "Nuclei development environment with TUNA mirror";
+  description = "typing test";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -28,13 +28,12 @@
         devShells.default = pkgs.mkShell {
           name = "nuclei-dev-env";
           nativeBuildInputs = with pkgs; [ go git ];
-          buildInputs = with pkgs; [ nuclei ];
+          buildInputs = with pkgs; [
+            typst
+            ttyper
+          ];
           shellHook = ''
-            export NUCLEI_TEMPLATES="$HOME/.config/nuclei/templates"
-            mkdir -p $HOME/.config/nuclei
-            echo "Nuclei 开发环境已准备就绪！"
-            nuclei -version
-            echo "模板路径：$NUCLEI_TEMPLATES"
+            echo "typst"
           '';
         };
       }
